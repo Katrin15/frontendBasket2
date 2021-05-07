@@ -1,0 +1,98 @@
+<app-add-info ></app-add-info>
+<p style="margin:22px 0 0 0;">
+	Congratulations with your signup and placing the order!<br>
+	To continue, please, verify your mobile number.
+</p>
+<h3 class="cart__smsHeader">Pass mobile verification</h3>
+<div>
+	<p class="cart__resendSmsText">
+	  	A one-time verification code has been sent to the mobile number: <span>{{currentNumber}}</span>
+	</p>
+	<p class="cart__resendSmsText">
+	  	Please enter your code below to activate your account:
+	</p>
+	
+	<form [formGroup]="userVerificationForm" (ngSubmit)="onSubmitCode()">
+	  	<div class="cart__form-group">
+	    	<span class="cart__form-error">{{verificationSummary.codeMessage}}</span>
+	      	<input 
+	      		formControlName="token" class="cart__form-control" autocomplete="new-token" 
+	      		[ngClass] = "{ 'cart__inputValidation--error' :  verificationSummary.codeMessage }">          	
+	  	</div>
+	    <div class="cart__form-group">
+	      	<button type="submit" class="cart__submitButton">	          
+	            Submit
+	      	</button>
+	    </div> 	
+	</form>
+</div>
+
+<div>
+	<!--<p class="cart__resendSmsText">
+	  	If you have not received the code please check the correctness of the specified number and  
+	  	<span class="cart__links" (click)="toggleUpdateForm()">correct it</span> if necessary.  If you do not receive a code please send an email to <a class="cart__links" href="mailto:bill@hostkey.com?subject=non-receipt of verification code&body=I have not received the verification code, my phone number is: ...">bill@hostkey.com</a>
+	</p>-->	
+	<p class="cart__resendSmsText">
+		If you have not received your code, please check that your number is correct and <span class="cart__links" (click)="toggleUpdateForm()">change it</span> if necessary.<br>
+	</p>
+	<form [formGroup]="smsNumberUpdateForm" (ngSubmit)="onSubmitUpdate()"  [hidden]="updateFormHide">
+		<div class="cart__form-group">	  			  		
+		    	<span class="cart__form-error">{{smsInputValidationResult.message}}</span>
+		    	<div class="cart__input-container">
+		    		
+			    	<input type="phone-select"
+		                   	class="form-control"
+		                   	formControlName="smsNumber"
+		                   	autocomplete="user-sms"
+		                   	
+		                   	[ngClass] = "[ smsInputValidationResult.cssClass ]"
+		                   	#smsSelect="ngx-phone-select"
+		                   	id="sms"
+		                   	ngxPhoneSelect
+
+		                   	[popover] = "verificationSummary.smsPrompt"
+		        			placement = "right"
+		        			[outsideClick] = "true"
+		        			triggers = "" 
+		        			#smsPopover = "bs-popover"
+		                   >
+		                   <!---->
+		            <span (click)="smsPopover.toggle()" class="cart__icon-prompt">i</span>
+		        </div>
+		</div>
+	    <div class="cart__form-group">
+	      <button type="submit"
+	              class="cart__submitButton">
+	              Update
+	      </button>
+	    </div>
+	</form>
+</div>
+
+<div>
+	<div >
+	  	<!--Restart your mobile, and 
+	  	<span class="cart__links" 
+	  		(click)="onSubmitResend()" 
+	  		[ngClass] = "{ 'not-active' : timerStart }"
+	  		>
+	  		request
+	  	</span> 	  	
+	  	another code in <div appTimer [start]="timerStart" (onFinish)="onTimerFinish()" class="cart__alarm">   		
+	  		<span class="cart__icon-alarm"></span><span class="seconds1">01</span><span>&nbsp;:&nbsp;</span><span class="seconds2">00</span>
+	  	</div> seconds. In case of non-receipt, please contact an <a href="#" class="cart__links" onclick="LC_API.open_chat_window();return false;">online consultant</a> or send an email to <a class="cart__links" href="mailto:bill@hostkey.com?subject=non-receipt of verification code&body=I have not received the verification code, my phone number is: ...">bill@hostkey.com</a>.
+	  -->
+	  		<div class="cart__resendSmsText">
+	  			If the number is correct, please try restarting your mobile and <span class="cart__links" 
+		  		(click)="onSubmitResend()" 
+		  		[ngClass] = "{ 'not-active' : timerStart }"
+		  		>requesting another code</span> in <div appTimer [start]="timerStart" (onFinish)="onTimerFinish()" class="cart__alarm">   		
+		  		<span class="cart__icon-alarm"></span><span class="seconds1">01</span><span>&nbsp;:&nbsp;</span><span class="seconds2">00</span>
+		  		</div> seconds.
+	  		</div>
+	  		<div class="cart__resendSmsText">
+			If you still do not receive a code, please contact our <a href="#" class="cart__links" onclick="LC_API.open_chat_window();return false;">Live Chat Support Agent</a> or reach us via email at <a class="cart__links" href="mailto:bill@hostkey.com?subject=non-receipt of verification code&body=I have not received the verification code, my phone number is: ...">bill@hostkey.com</a>.
+			</div>
+	  	
+	</div>
+</div>

@@ -1,0 +1,38 @@
+<app-add-info></app-add-info>
+
+<div class="container-information">
+  <p class="information">Having issues with your registration or purchase? Please contact our<br>
+    24/7 Customer service on <a href="#" onclick="LC_API.open_chat_window();return false;" class="color-href-information"> livechat </a> or any
+    <a href="about/contacts" target="_blank" class="color-href-information">other support channel.</a>
+  </p>
+</div>
+
+<article class="cart__item-description" *ngFor="let description of descriptions">
+	<h4 class="cart__item-description__title">
+		{{description.label}}
+	</h4>
+	<p class="cart__item-description__text">
+		{{description.description}}
+	</p>
+</article>
+
+<div>
+	<h4 class="cart__comment__title">
+		Commentary
+	</h4>
+	<textarea class="cart__comment__text" (keyup)="onKey($event)" placeholder="If your order doesn´t require immediate setup or you need your server to be delivered on a certain date, please make a note below." maxlength="500"></textarea>
+</div>
+
+<p *ngIf= "message"><span class="cart__weak-password">{{message}}</span><p>
+
+<p class="cart__resendSmsText">The discount will be applied at checkout.</p>
+<form [formGroup]="promocodeForm" (ngSubmit)="onSubmit()">
+	  	<div class="cart__form-group">
+	      	<input formControlName="promocode" class="cart__form-control" autocomplete="new-promocode" placeholder="Promocode">
+	  	</div>
+	  	<div class="cart__form-group">
+	      	<button type="submit" class="cart__submitButton">
+	            Proceed
+	      	</button>
+	    </div>
+</form>

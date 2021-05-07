@@ -1,0 +1,107 @@
+{
+  "Code": 0,
+  "Message": "",
+  "ErrorStatus": false,
+  "Error": false,
+  "Content": {
+    "totalPrice": 357.48,
+    "totalPriceWithTax": 357.48,
+    "items": [
+      {
+        "pid": 637,
+        "billingcycle": "Monthly",
+        "configoptions": {
+          "875": 26625,
+          "876": 26628,
+          "877": 26630,
+          "878": 26633,
+          "879": 26636,
+          "880": 26639,
+          "881": 26644,
+          "882": 26645
+        },
+        "Configuration": {
+          "GPU": "1xGTX1080 1xGTX10801xGTX10801xGTX10801xGTX10801xGTX1080",
+          "CPU": "Xeon E3-1230v5 4x3.4GHz",
+          "RAM": "16GB",
+          "HDD": "240GB SSD"
+        },
+        "Label": "GPU Server RU",
+        "Price": 273,
+        "Description": "Посмотрим на что повлияет эта информация GPU RU"
+      },
+      {
+        "pid": 637,
+        "billingcycle": "Monthly",
+        "configoptions": {
+          "875": 26625,
+          "876": 26628,
+          "877": 26630,
+          "878": 26633,
+          "879": 26636,
+          "880": 26639,
+          "881": 26644,
+          "882": 26645
+        },
+        "Configuration": {
+          "GPU": "1xGTX1080",
+          "CPU": "Xeon E3-1230v5 4x3.4GHz",
+          "RAM": "16GB"
+        },
+        "Label": "GPU Server RU",
+        "Price": 555,
+        "Description": "Посмотрим на что повлияет эта информация GPU RU"
+      },
+      {
+        "pid": 3020,
+        "customfields": {
+          "441": "Xeon E3-1230v5 3.4GHz (4 cores)/32 GB/1Tb SATA/Centos 7 / 64-bit/1 IPv4 / 100Mbps unmetered (Fair usage) - FREE / NONE/Basic SLA / Self-service / DC Tier3",
+          "442": "{\"Hardware\":{\"Label\":\"Xeon E3-1230v5 3.4GHz (4 cores)\\/32 GB\\/1Tb SATA\",\"CompId\":31987,\"Cpu\":\"Xeon E3-1230v5 3.4GHz (4 cores)\",\"Ram\":\"32 GB\",\"Hdd\":[\"1Tb SATA\"]},\"Software\":{\"OS\":226,\"Bit\":121,\"RdpLicCount\":0,\"ExchangeCount\":1,\"Label\":\"Centos 7 \\/ 64-bit\"},\"Network\":{\"Traffic\":148,\"Bandwidth\":427,\"IP\":50,\"IPv6\":false,\"Label\":\"1 IPv4 \\/ 100Mbps unmetered (Fair usage) - FREE \\/ NONE\"},\"SLA\":{\"ServiceLevel\":134,\"Management\":135,\"DCGrade\":332,\"CycleDiscount\":\"monthly\",\"Label\":\"Basic SLA \\/ Self-service \\/ DC Tier3\"}}",
+          "443": "[]",
+          "10005": "Country: US / Server ID: 31987 / Groups: Mini,1CPU"
+        },
+        "priceoverride": 84.48,
+        "billingcycle": "Monthly",
+        "Label": "Dedicated server US",
+        "Configuration": {
+          "_proto": {
+            "Label": "1 IPv4 / 100Mbps unmetered (Fair usage) - FREE / NONE",
+            "OS": 226,
+            "Bit": 121,
+            "RdpLicCount": 0,
+            "ExchangeCount": 1,
+            "ServiceLevel": 134,
+            "Management": 135,
+            "DCGrade": 332,
+            "CycleDiscount": "monthly",
+            "Traffic": 148,
+            "Bandwidth": 427,
+            "IP": 50,
+            "IPv6": false
+          },
+          "OS": "Centos 7",
+          "Bit": "64-bit",
+          "RdpLicCount": 0,
+          "ExchangeCount": 1,
+          "ServiceLevel": "Best effort (email/phone)",
+          "Management": "Self-service",
+          "DCGrade": "DC Tier3",
+          "CycleDiscount": "monthly",
+          "Traffic": "100Mbps unmetered (Fair usage) - FREE",
+          "Bandwidth": "NONE",
+          "IP": "1 IPv4",
+          "IPv6": false,
+          "CompId": 31987,
+          "Cpu": "Xeon E3-1230v5 3.4GHz (4 cores)",
+          "Ram": "32 GB",
+          "Hdd": [
+            "1Tb SATA"
+          ]
+        },
+        "Price": 84.48,
+        "Description": "Посмотрим на что повлияет эта информация Ready Us"
+      }
+    ],
+    "currency": "EUR"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "Code": 0,
+  "Message": "",
+  "ErrorStatus": false,
+  "Error": false,
+  "Content": {
+    "totalPrice": 689.05,
+    "totalPriceWithTax": 689.05,
+    "items": [
+      {
+        "pid": 637,
+        "billingcycle": "Monthly",
+        "configoptions": {
+          "875": 26625,
+          "876": 26628,
+          "877": 26630,
+          "878": 26633,
+          "879": 26636,
+          "880": 26639,
+          "881": 26644,
+          "882": 26645
+        },
+        "Configuration": "GPU: 1xGTX1080 / CPU: Xeon E3-1230v5 4x3.4GHz / Amount of RAM: 16GB / HDD capacity: 240GB SSD",
+        "Label": "GPU Server RU",
+        "Price": 273,
+        "Description": ""
+      },      
+      {
+        "pid": 3040,
+        "customfields": {
+          "448": "VPS Win US CPU CORES: 1 / RAM: 1 GB / Disk space: 20 GB SSD / IPv4 address: 1 / Traffic: 1TB / Windows Server 2016",
+          "449": "{\"/api/v1/winvps/basket\":\"\",\"groups\":\"US\",\"period\":\"annually\",\"preset\":1,\"os\":\"Windows Server 2016\",\"traffic\":0,\"PID\":3040}"
+        },
+        "priceoverride": 52.8,
+        "billingcycle": "Annually",
+        "Label": "VPS Win US",
+        "Configuration": "CPU CORES: 1 / RAM: 1 GB / Disk space: 20 GB SSD / IPv4 address: 1 / Traffic: 1TB / Windows Server 2016",
+        "Price": 52.8,
+        "Description": ""
+      }
+    ],
+    "currency": "EUR"
+  }
+}

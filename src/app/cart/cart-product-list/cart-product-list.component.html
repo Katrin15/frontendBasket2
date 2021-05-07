@@ -1,0 +1,98 @@
+<div class="b-text-page"  appMatchHeight className = "cart__block" style="min-height: 700px;">
+<section class="cart__product-list cart__block">
+  <!--<div (click)='testSafari()'>test safari</div>-->
+    <h2 class="cart__header">Order Information</h2>
+    <table class="cart__info-table cart__product-list-table">
+      <tr>
+        <th>Item</th>
+        <th>Configuration</th>
+        <!-- <th></th>  -->
+        <th>Billing Cycle</th>
+        <th>Price</th>
+      </tr>
+
+      <tr *ngFor="let product of products; let i = index" [ngClass] = "{ 'cart__product-last' : i === (products.length - 1)  }">
+        <td class="cart__product-padding">{{product.Label}}</td>
+        <td class="cart__product-padding">
+
+          <div *ngFor="let item of product.ConfigurationArr; let j = index">
+            <table>
+              <tr *ngIf="j < 3" class="clearfix">
+                <td class="cart__product-option-name">{{item.name}}:</td>
+                <td class="cart__product-option">{{item.option}}</td>
+              </tr>
+
+              <!--
+              <tr *ngIf="j == 3 && product.ConfigurationArr.length > 3"><span (click)="showMoreLess(i)" class="cart__product-more">
+                {{product.showMoreLessText}}
+                <i class="arrow down" [ngClass] = "{ 'up' : product.showMoreLessText ==='Show Less'  }"></i>
+              </span>
+              </tr>
+
+              <tr *ngIf="j >= 3" [hidden] = "!product.showMore" class="clearfix">
+                  <td class="cart__product-option-name">{{item.name}}:</td>
+                  <td class="cart__product-option">{{item.option}}</td>
+              </tr>
+              -->
+
+              <tr *ngIf="j == 3 && product.ConfigurationArr.length > 3" [hidden] = "product.showMore"><span (click)="showMoreLessSeparetely(i)" class="cart__product-more">
+                Show More
+                <i class="arrow down"></i>
+              </span>
+              </tr>
+
+              <tr *ngIf="j >= 3" [hidden] = "!product.showMore" class="clearfix">
+                  <td class="cart__product-option-name">{{item.name}}:</td>
+                  <td class="cart__product-option">{{item.option}}</td>
+              </tr>
+
+              <tr *ngIf="j >= 3 && j == (product.ConfigurationArr.length - 1)" [hidden] = "!product.showMore"><span (click)="showMoreLessSeparetely(i)" class="cart__product-more">
+                Show Less
+                <i class="arrow down up"></i>
+              </span>
+              </tr>
+
+            </table>
+          </div>
+
+        </td>
+        <!-- <td></td>  -->
+        <td class="cart__product-padding">{{product.billingcycle}}</td>
+        <td class="cart__product-padding">
+          <span class="cart__product-price">{{product.Price | currency:basketCurrency:'symbol'}}</span>
+          <span class="cart__product-remove" (click)="removeBasketItem(i)" [hidden]="disableRemove || product.pid==3063">Remove</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="cart__product-border"></td>
+        <td class="cart__product-border"></td>
+        <td class="cart__product-total-price cart__product-border">Subtotal</td>
+        <td class="cart__product-total-price cart__product-border cart__product-total-price-digits">{{ subtotal | currency:basketCurrency:'symbol'}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td class="cart__product-total-price">Tax</td>
+        <td class="cart__product-total-price cart__product-total-price-digits">{{ tax | currency:basketCurrency:'symbol'}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td class="cart__product-total-price-grand">Grand Total</td>
+        <td class="cart__product-total-price-grand cart__product-total-price-digits">{{ grandTotal | currency:basketCurrency:'symbol' }}</td>
+      </tr>
+    </table>
+</section>
+
+
+<section class="cart__user-block cart__block">
+  <router-outlet></router-outlet>
+
+  <!--<app-register-full></app-register-full>
+  <app-sms-verification></app-sms-verification>
+  <app-area-logined></app-area-logined>
+  -->
+
+</section>
+</div>

@@ -1,0 +1,269 @@
+<ngx-spinner
+bdColor = "rgba(255,255,255,0.7)"
+size = "large"
+color = "#945ae0"
+type = "ball-clip-rotate"
+></ngx-spinner>
+
+<h2 class="cart__header">Billing Details</h2>
+<div class="cart__loginRegister">
+    <span>Your Profile</span>
+</div>
+
+<div class="container-information">
+  <p class="information">Having issues with your registration or purchase? Please contact our<br>
+    24/7 Customer service on <a href="#" onclick="LC_API.open_chat_window();return false;" class="color-href-information"> livechat </a> or any
+    <a href="about/contacts" target="_blank" class="color-href-information">other support channel.</a>
+  </p>
+</div>
+
+<div class="cart__register cart__section">
+
+	<span *ngIf="errorServerMessageReg2" class="cart__login-server-error">{{errorServerMessageReg2}}</span>
+
+	<form [formGroup]="registerFullForm" (ngSubmit)="onSubmit()">
+
+		<div class="cart__form-group">
+	    	<span class="cart__form-error">{{registerFullSummary.firstNameMessage}}</span>
+	      	<input
+	      		formControlName="firstName"
+	      		class="cart__form-control"
+	      		autocomplete="user-name"
+	      		placeholder="First Name*"
+	        	[ngClass] = "{ 'cart__inputValidation--error' :  registerFullSummary.firstNameMessage }"
+	        	>
+	  	</div>
+
+	  	<div class="cart__form-group">
+	    	<span class="cart__form-error">{{registerFullSummary.lastNameMessage}}</span>
+	      	<input
+	      		formControlName="lastName"
+	      		class="cart__form-control"
+	      		autocomplete="user-last-name"
+	      		placeholder="Last Name*"
+	        	[ngClass] = "{ 'cart__inputValidation--error' :  registerFullSummary.lastNameMessage }"
+	        	>
+	  	</div>
+
+	  	<div class="cart__form-group cart__form-group--noOwnMessage">
+	  		<div class="cart__icon-container" (click)="chooseLegalEntity('c')">
+	  			<span  class="cart__icon-company"></span>
+	  			<span class="cart__icon-text" [ngClass] = "{ 'active' :  !legalEntity }">Company</span>
+	  		</div>
+	  		<div class="cart__icon-container" (click)="chooseLegalEntity('i')">
+	  			<span  class="cart__icon-individual"></span>
+	  			<span class="cart__icon-text" [ngClass] = "{ 'active' :  legalEntity }">Individual</span>
+	  		</div>
+	  	</div>
+
+	  	<div class="cart__form-group" [hidden]="legalEntity">
+	    	<span class="cart__form-error">{{registerFullSummary.companyNameMessage}}</span>
+	      	<input
+	      		formControlName="companyName"
+	      		class="cart__form-control"
+	      		autocomplete="user-company"
+	      		placeholder="Company Name*"
+	      		[ngClass] = "{ 'cart__inputValidation--error' :  registerFullSummary.companyNameMessage }"
+	        	>
+	  	</div>
+
+		<div class="cart__form-group">
+	    	<span class="cart__form-error">{{registerFullSummary.countryMessage}}</span>
+		  	<select class="form-control"
+	            formControlName="country"
+	            [(ngModel)]="selectedCountryModel"
+	            [compareWith]="setDefaultCountry"
+	            [ngClass] = "{ 'cart__inputValidation--error' :  registerFullSummary.countryMessage }"
+	            >
+	            <option *ngFor="let country of countries" [ngValue]="country">
+	                {{country.full}}
+	            </option>
+	        </select>
+	    </div>
+
+	    <div class="cart__form-group cart__form-group--noOwnMessage">
+
+	      	<input
+	      		formControlName="region"
+	      		class="cart__form-control"
+	      		autocomplete="user-region"
+	      		placeholder="Region"
+	        	>
+	  	</div>
+
+	  	<div class="cart__form-group ">
+	    	<span class="cart__form-error">{{registerFullSummary.cityMessage}}</span>
+	      	<input
+	      		formControlName="city"
+	      		class="cart__form-control"
+	      		autocomplete="user-city"
+	      		placeholder="City*"
+	      		[ngClass] = "{ 'cart__inputValidation--error' :  registerFullSummary.cityMessage }"
+	        	>
+	  	</div>
+
+	  	<div class="cart__form-group">
+	    	<span class="cart__form-error">{{zipCodeInputValidationResult.message}}</span>
+	      	<input
+	      		formControlName="zipCode"
+	      		class="cart__form-control"
+	      		autocomplete="user-zip-code"
+	      		placeholder="Zip Code*"
+	      		#zipCode
+
+	        	[ngClass] = "[ zipCodeInputValidationResult.cssClass ]"
+
+	        	[popover] = "zipCodeInputValidationResult.prompt"
+        		placement = "right"
+        		[outsideClick] = "true"
+        		triggers = ""
+        		#zipCodePopover = "bs-popover"
+	        	>
+	  	</div>
+
+	  	<div class="cart__form-group">
+	    	<span class="cart__form-error">{{registerFullSummary.addressMessage}}</span>
+	      	<input
+	      		formControlName="address"
+	      		class="cart__form-control"
+	      		autocomplete="user-address"
+	      		placeholder="Address 1*"
+	        	[ngClass] = "{ 'cart__inputValidation--error' :  registerFullSummary.addressMessage }"
+	        	>
+	  	</div>
+	  	<div class="cart__form-group">
+	  		<span class="cart__form-error">{{registerFullSummary.addressMessage2}}</span>
+	      	<input
+	      		formControlName="address2"
+	      		class="cart__form-control"
+	      		autocomplete="user-address2"
+	      		placeholder="Address 2"
+	        	[ngClass] = "{ 'cart__inputValidation--error' :  registerFullSummary.addressMessage2 }"
+	        	>
+	  	</div>
+
+	  	<div class="cart__form-group">
+	  		<div class="cart__phoneName-container">
+	  			<span>SMS Number*</span>
+	  		</div><div class="cart__phone-container">
+		    	<span class="cart__form-error">{{smsInputValidationResult.message}}</span>
+
+		    	<div class="cart__input-container">
+		    		<!-- [(ngModel)]="sms_number" -->
+			    	<input type="phone-select"
+		                   	class="form-control"
+		                   	formControlName="sms"
+		                   	autocomplete="user-sms"
+
+		                   	[ngClass] = "[ smsInputValidationResult.cssClass ]"
+		                   	#smsSelect="ngx-phone-select"
+		                   	id="sms"
+		                   	ngxPhoneSelect
+
+		                   	[popover] = "registerFullSummary.smsPrompt"
+		        			placement = "right"
+		        			[outsideClick] = "true"
+		        			triggers = ""
+		        			#smsPopover = "bs-popover"
+		                   >
+		                   <!---->
+		            <span (click)="smsPopover.toggle()" class="cart__icon-prompt"></span>
+		        </div>
+		    </div>
+        </div>
+
+	  	<div class="cart__form-group">
+	  		<div class="cart__phoneName-container">
+	  			<span>Phone Number</span>
+	  		</div><div class="cart__phone-container">
+		    	<span class="cart__form-error">{{phoneInputValidationResult.message}}</span> <!-- registerFullSummary.phoneMessage -->
+		    	<!-- [(ngModel)]="phone_number" -->
+		    	<input type="phone-select"
+	                   class="form-control"
+	                   formControlName="phone"
+	                   autocomplete="user-phone"
+
+	                   [ngClass] = "[ phoneInputValidationResult.cssClass ]"
+	                   #phoneSelect="ngx-phone-select"
+	                   id="phone"
+	                   ngxPhoneSelect>
+	                   <!---->
+	        </div>
+        </div>
+
+
+
+
+        <!-- paym method -->
+        <div class="cart__form-group "> <!-- cart__form-group--noOwnMessage -->
+        	<span class="cart__form-error">{{registerFullSummary.payMethodsMessage}}</span>
+	      	<select class="form-control"
+              formControlName="payM"
+              [(ngModel)]="selectedPayMethModel"
+              [compareWith]="setDefaultPayMeth"
+              [ngClass] = "{ 'cart__inputValidation--error' :  registerFullSummary.payMethodsMessage }"
+              >
+	              <option *ngFor="let m of payM" [ngValue]="m.module">
+	                {{m.displayname}}
+	            </option>
+      		</select>
+	  	</div>
+
+
+	  	<div class="cart__form-group cart__form-group--noOwnMessage" [hidden]="legalEntity">
+	    	<div class="cart__input-container">
+		      	<input
+		      		formControlName="vat"
+		      		class="cart__form-control"
+		      		autocomplete="user-vat"
+		      		placeholder="VAT"
+
+		      		[popover] = "registerFullSummary.vatPrompt"
+	        		placement = "right"
+	        		[outsideClick] = "true"
+	        		triggers = ""
+	        		#vatPopover = "bs-popover"
+		        	>
+		        <span (click)="vatPopover.toggle()" class="cart__icon-prompt"></span>
+		    </div>
+	  	</div>
+
+	  	<div class="cart__form-group">
+	    	<span class="cart__form-error">{{registerFullSummary.secretWordMessage}}</span>
+	    	<div class="cart__input-container">
+		      	<input
+		      		formControlName="secretWord"
+		      		class="cart__form-control"
+		      		autocomplete="user-secret-word"
+		      		placeholder="Secret Code Word to confirm your identity*"
+		        	[ngClass] = "{ 'cart__inputValidation--error' :  registerFullSummary.secretWordMessage }"
+
+		        	[popover] = "registerFullSummary.secretWordPrompt"
+	        		placement = "right"
+	        		[outsideClick] = "true"
+	        		triggers = ""
+	        		#secretWordPopover = "bs-popover"
+		        	>
+		        <span (click)="secretWordPopover.toggle()" class="cart__icon-prompt"></span>
+		    </div>
+	  	</div>
+
+	  	<!-- ГАЛКА -->
+	  	<div class="cart__form-group">
+	  		<span class="cart__form-error">{{registerFullSummary.termsAgreeMessage}}</span>
+	        <label class="checkbox tickInputHKey">
+	            <input type="checkbox" formControlName="termsTick" id="termsTick" >
+	            <label for="termsTick"></label>
+	                 I have read and agree to the <a href="https://www.hostkey.com/legal" target="_blank" class="cart__links">Terms of Service</a>
+	        </label>
+    	</div>
+
+	  	<div class="cart__form-group">
+	      	<button type="submit" class="cart__submitButton">
+	            Proceed
+	      	</button>
+	    </div>
+
+	</form>
+
+</div>

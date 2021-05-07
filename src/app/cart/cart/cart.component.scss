@@ -1,0 +1,714 @@
+// FONTS
+@import url('https://rsms.me/inter/inter-ui.css');
+@mixin InterUI-700 {
+  font-family: 'Inter UI', sans-serif;
+  font-style:  normal;
+  font-weight: 700;
+}
+@mixin InterUI-400 {
+  font-family: 'Inter UI', sans-serif;
+  font-style:  normal;
+  font-weight: 400;
+}
+html { 	font-family: 'Inter UI', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter UI var alt', sans-serif; }
+}
+
+
+
+
+
+//general
+@mixin border-radius ($radius:5px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin box-sizing ($type: border-box) {
+  box-sizing: $type;
+  -webkit-box-sizing: $type;
+  -moz-box-sizing: $type;
+}
+
+$almostBlack: #121212;
+$grayText: #757575; 
+$grayBorder: #9e9e9e;
+$orange: #ff692d; // @red: #ff692d; основной оранжевый
+$errorRed: rgba(239, 51, 58, 0.95);
+
+* {
+	@include box-sizing(border-box);
+	color:$grayText;
+}
+
+p {
+	line-height: 22px;
+}
+
+// General
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.cart__header {
+	font-size: 36px;
+	color: $almostBlack;	
+    margin: 40px 0 20px 0;
+
+	//font-family: 'Inter UI';
+  	//font-style:  normal;
+  	//font-weight: 400;
+
+  	@include  InterUI-400;
+}
+
+.text-black {
+	color:$almostBlack;
+}
+.text-orange {
+	color:$orange;
+}
+.text-16 {
+	font-size: 16px;
+}
+.text-bold {
+	font-weight: 400;
+}
+
+
+
+
+// CART PRODUCT LIST
+.cart {  //.cart-product-list
+	$width: 648px;
+
+	width:$width;
+
+	&__product-list {
+		padding: 0 15px 0 30px; 
+		float: left;
+
+		@include  InterUI-400;
+	}
+	&__user-block {
+		width:470px; 
+		padding: 0 30px 0 15px; 
+		float: left;
+		//margin-left: 40px;
+
+		@include  InterUI-400;	
+	}
+
+	&__loginRegister {
+		padding-bottom: 18px;
+		border-bottom: solid $grayText 2px;
+
+		a {
+			text-decoration: none;
+			padding-right: 20px;
+			font-weight: 500;
+
+			&.active {
+				color: $orange; //$almostBlack;
+			}
+		}
+
+		span {
+			padding-right: 20px;
+			font-weight: 500;	
+			color: $almostBlack;
+		}
+	}
+
+	&__links {
+		text-decoration: none;
+		padding-bottom: 1px; //3px;
+		border-bottom: solid $grayText 1px;
+		cursor: pointer;
+	}
+	&__links-separate {
+		margin-top: 15px;
+		display: inline-block;
+	}
+	&__links.active {
+
+	}
+	&__links.not-active {
+		border-bottom: solid lighten($grayText, 15%) 1px;
+		color: lighten($grayText, 15%);		
+	}
+	&__weak-password {
+		color: $orange;
+	}
+
+	&__info-table {
+		width: 100%;
+		border-collapse:collapse;
+	}
+
+	&__add-info-table{
+
+		&__hello {
+			text-align: left;
+			width:1%;
+    		white-space:nowrap;
+
+    		color: $almostBlack;
+    		font-size: 16px;
+
+    		padding-bottom: 18px;
+			border-bottom: solid $grayText 2px;
+
+			font-weight: 700;
+		}
+		&__name {
+			text-align: left;
+			color: $orange;
+
+			padding-bottom: 16px;
+			border-bottom: solid $grayText 2px;
+
+			font-weight: 700;
+		}
+		&__logout {
+			text-align: right;
+			width:1%;
+    		white-space:nowrap;
+
+    		//color:$grayText;
+    		cursor: pointer;
+
+    		padding-bottom: 16px;
+			border-bottom: solid $grayText 2px;
+
+			font-weight: 500;
+		}
+	}
+
+	&__product-list-table {
+		width: $width;
+		border-collapse:collapse;
+		font-size: 16px;
+
+		th {
+			//color: $grayText;
+			border-bottom: solid $grayText 2px;
+			padding: 0 10px 18px 0;
+			font-weight: 400;
+		}
+
+		/*& > td {
+			padding: 22px 10px 0 0;
+		}*/
+
+				
+
+		// header
+		th:nth-child(1){
+			width: 140px;
+			text-align: left;
+		}
+		th:nth-child(2){
+			width: 140px + 160px;
+			text-align: left;
+		}
+		//th:nth-child(3){
+			// пустая
+			//width: 160px;
+		//}
+		th:nth-child(3){
+			width: 126px; //116px; //107px;
+			text-align: left; //center;
+		}
+		th:nth-child(4){
+			width: 82px; //92px;//101px;
+			text-align: center;
+		}
+
+		
+		td:nth-child(1){
+			text-align: left;
+			color:$almostBlack;
+			vertical-align: top;
+
+			font-weight: 500;	
+			padding-right: 10px;	
+		}
+		td:nth-child(2){
+			text-align: left;
+			//color: $grayText;		
+		}
+		td:nth-child(3){
+			vertical-align: top;
+			text-align: left;
+			color: $almostBlack;//$grayText;	
+
+			font-weight: 500;		
+		}
+		//td:nth-child(4){
+		//	text-align: center;
+		//	color:$almostBlack;
+		//	vertical-align: top;
+		//}
+		td:nth-child(4){
+			text-align: center;
+			//color: $orange;
+			vertical-align: top;
+
+			//adding-top: 50px;
+		}
+
+
+	}
+
+	&__product-padding {
+		padding: 22px 0 10px 0;
+	}
+	&__product-last {
+		padding-bottom: 22px;
+	}
+
+	&__product-option {
+		padding: 0 10px 0 5px;
+	}
+
+	&__product-option-name {
+		width: 130px;
+		color: $grayText !important;
+	}
+
+	&__product-price {
+		color: $orange;
+		display: block;
+
+		font-weight: 500;
+	}
+	&__product-remove {
+		color: $grayText;	
+		cursor: pointer;
+
+		font-size: 14px;
+	}
+	&__product-more {
+		color:$almostBlack;	
+		cursor: pointer; //default;
+
+		padding: 10px 0; //20px 0 40px 0;
+    	display: inline-block;
+
+    	font-weight: 700;
+	}
+	&__product-total-price {
+		color:$almostBlack !important;	
+		text-align: left !important;
+	}
+	&__product-total-price-digits {
+		padding-left: 20px; //40px;
+	}
+	&__product-total-price-grand {
+		color:$almostBlack !important;	
+		text-align: left !important;
+
+		padding-top: 20px;
+		font-size: 18px;
+
+		font-weight: 500;
+	}
+	&__product-border {
+		border-top: solid $grayText 2px;
+		padding-top: 22px;
+	}
+
+	&__comments {
+		width: 100%;
+		border: solid $grayText 1px;
+		@include border-radius(3px);
+	}
+	//&__product-option-name {
+	//	display: block;
+	//	float: left;
+	//	width: 48%;
+	//}
+}
+
+
+// FORMS
+// placeholders https://css-tricks.com/almanac/selectors/p/placeholder/
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $grayBorder;
+  font-size: 12px;
+  line-height: 22px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $grayBorder;
+  font-size: 12px;
+  line-height: 22px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $grayBorder;
+  //font-size: 12px;
+  //line-height: 22px;
+
+  //vertical-align: middle;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: $grayBorder;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.cart {
+	&__inputValidation {
+		&--success {
+			border-color: rgba(60,118,61,1)!important;
+    		-webkit-box-shadow:none;
+    		box-shadow:none;
+
+			/*&:focus {
+				border-color: #3c763d;
+    			-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(60,118,61,.6);
+    			box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(60,118,61,.6);	
+			}*/
+		}
+		
+		&--error {
+			border-color: rgba(255,0,0,1)!important;
+    		-webkit-box-shadow:none;
+    		box-shadow:none;
+
+    		/*&:focus {
+    			border-color: #ff0000;
+    			-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255,0,0, 0.6);
+    			box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255,0,0, 0.6);
+    		}*/
+		}
+	}
+}
+
+.cart {
+	&__form-group {
+		margin-bottom: 7px;
+		//min-height: 48px;
+
+		&--noOwnMessage {
+			padding-top: 16px;
+		}
+	}
+
+	&__input-container {
+		position: relative;
+	}
+
+	&__icon-eye {
+		/*position: absolute;
+		top:3px;
+		right: 30px;
+		cursor:pointer;*/
+
+		/*width: 21px; height: 12px;
+	    background: url('/../../assets/img/basket_sprite.png') -55px -10px;*/
+
+	    width: 20px; height: 11px;
+    	background: url('/../../assets/img/basket_sprite.png') -80px -84px;
+
+	    display: inline-block;
+
+	    position: absolute;
+		top:9px;
+		right: 30px;
+		cursor:pointer;
+
+	}
+	&__icon-prompt {
+		/*position: absolute;
+		top:3px;
+		right: 10px;
+		cursor:pointer;
+
+		display: block;
+		width: 22px;
+		height: 22px;
+		font-size: 16px;
+		color:$orange;
+
+		border: solid $orange 2px;
+		@include border-radius(22px);
+		text-align: center;*/
+
+		/*width: 12px; height: 12px;
+    	background: url('/../../assets/img/basket_sprite.png') -10px -57px;*/
+
+    	width: 12px; height: 12px;
+    	background: url('/../../assets/img/basket_sprite.png') -126px -10px;
+	    display: inline-block;
+
+	    position: absolute;
+		top:9px;
+		right: 9px;
+		cursor:pointer;
+	}
+
+	&__icon-container {
+		display: inline-block;
+		margin-right: 15px;
+		cursor: pointer;
+	}
+	&__icon-text.active {
+		color: $orange;
+	}
+
+	&__icon-company {
+		width: 15px; 
+		height: 20px;
+    	background: url('/../../assets/img/basket_sprite.png') -10px -84px;
+
+    	display: inline-block;	
+    	margin: 0 5px -1px 0;	
+	}
+	&__icon-individual {
+		width: 15px;
+		height: 20px;
+    	background: url('/../../assets/img/basket_sprite.png') -45px -84px;
+
+    	display: inline-block;
+    	margin: 0 5px -1px 0;
+
+	}
+
+	&__form-error, &__login-server-error {
+		$height: 12px;
+
+		display:inline-block;
+		width: 100%;
+
+		font-size: $height;
+		line-height: $height + 4;
+		color:$errorRed;
+	}
+
+	&__login-server-error {
+		margin-top: 17px;
+	}
+
+	&__form-control {
+		display: block;
+    	width: 100%;
+    	height: 28px;
+    	padding: 4px 10px;
+    	font-size: 12px;
+    	line-height: 22px; //1.42857143; //22px;
+    	background-color: white;
+    	border: 1px solid $grayBorder;
+    	@include border-radius(2px);
+    
+    	background-image: none;
+    	outline: none;
+
+    	@include InterUI-400;	
+
+	}
+	&__inputValidation--error {
+		border-color: $errorRed;
+	}
+	&__submitButton {
+		background-color: $orange;
+		padding: 8px 0;
+		//height: 16px;
+		width: 125px;
+
+		margin-top: 9px;//margin-top: 40px;
+
+		color:white;
+		font-size: 16px;
+
+		outline: none;
+		border:none;
+		cursor: pointer;
+	}
+
+	&__submitButton--green {
+		background-color: green;
+		padding: 8px 0;
+		//height: 16px;
+		width: 125px;
+
+		margin-top: 9px;//margin-top: 40px;
+
+		color:white;
+		font-size: 16px;
+
+		outline: none;
+		border:none;
+		cursor: pointer;
+
+	}
+
+	&__phone-container {
+		display: inline-block;
+		width: 70%;
+	}
+
+	&__phoneName-container {
+		display: inline-block;
+		width: 30%;
+
+		color: $grayBorder;
+
+		// same Placeholder
+		font-size: 12px; //???
+  		line-height: 22px;
+
+	}
+}
+
+.cart__form-group select{
+	display: block;
+    	width: 100%;
+    	padding: 3px 10px;
+    	font-size: 12px;
+    	line-height: 22px;
+    	height: 22px + 2*3 + 2*1;
+    	background-color: white;
+    	border: 1px solid $grayBorder;
+    	@include border-radius(2px);
+
+    	color:$grayBorder;
+    
+    	outline: none;
+
+    	option {
+    		padding-top:5px;
+    		padding-bottom: 5px;
+    	}
+}
+
+#zipCode::-ms-clear, #phone::-ms-clear, #sms::-ms-clear{
+    display: none;
+}
+
+// LOGIN
+.cart__login, .cart__register {
+	width: 425px;
+}
+
+// REGISTER
+.cart__register__passwordWeak {
+	//height: 100px;
+}
+
+// SMS Pages
+.cart__smsHeader {
+	padding-top: 18px;
+	color:$almostBlack;
+	font-size: 18px;
+
+	font-weight: 700;
+}
+.cart__resendSmsText {
+	margin: 10px 0 0 0;	
+	line-height: 22px;
+}
+.cart__icon-alarm {
+    /*width: 25px; height: 27px;
+    background: url('/../../assets/img/basket_sprite.png') -10px -10px;
+    display: inline-block;
+    margin: 0 3px -3px 0;*/
+    width: 22px; height: 26px;
+    background: url('/../../assets/img/basket_sprite.png') -84px -10px;
+    display: inline-block;
+    margin: 0 7px -7px 0;
+
+
+}
+.cart__alarm {
+	display: inline-block;
+	width: 83px;
+}
+
+// CLIENT AREA
+// Items Description, Comments
+.cart {
+	&__item-description {
+		margin-top:20px;
+	}
+	&__item-description__title, &__comment__title {
+		// аналогично с hello, 
+		color: $almostBlack;
+	   	font-size: 16px; 
+
+	   	font-weight: 700;   	
+	}
+	&__item-description__title {
+		margin: 10px 0 5px 0;	
+	}
+	&__comment__title {
+		margin: 10px 0;
+	}
+	&__comment__text {
+		width: 100%;
+	    border: 1px solid 	rgba(117, 117, 117, 0.5); // $grayBorder
+	    border-radius: 3px;
+	    min-height: 100px;
+	    padding: 5px;
+	}
+}
+
+// ARROWS
+i {
+  border: solid $almostBlack;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+
+  margin-left: 15px;
+  
+}
+.down.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+
+  margin-bottom: -2px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+
+  margin-bottom: 2px;
+}
+
+// ICONS
+/*.cart__icon-alarm {
+    width: 25px; height: 27px;
+    background: url('/../../assets/img/basket_sprite.png') -10px -10px;
+    display: inline-block;
+}*/
+
+// FORMS
+// placeholders https://css-tricks.com/almanac/selectors/p/placeholder/
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $grayBorder;
+  font-size: 12px;
+  line-height: 22px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $grayBorder;
+  font-size: 12px;
+  line-height: 22px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $grayBorder;
+  font-size: 12px;
+  //line-height: 22px;
+
+  //vertical-align: middle;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: $grayBorder;
+  font-size: 12px;
+  line-height: 22px;
+}

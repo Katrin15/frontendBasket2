@@ -1,0 +1,86 @@
+<ngx-spinner
+  bdColor="rgba(255,255,255,0.7)"
+  size="large"
+  color="#945ae0"
+  type="ball-clip-rotate"
+></ngx-spinner>
+
+<app-login-register></app-login-register>
+
+<div class="cart__register cart__section">
+
+  <div class="container-information"></div>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="cart__form-group">
+      <span class="cart__form-error">{{registerSummary.emailMessage}}</span>
+      <input
+        formControlName="email"
+        class="cart__form-control"
+        autocomplete="new-email"
+        placeholder="Email Address*"
+        [ngClass]="{ 'cart__inputValidation--error' :  registerSummary.emailMessage }"
+
+        [popover]="registerSummary.bannedEmailMessage"
+        placement="right"
+        [outsideClick]="true"
+        triggers=""
+        #emailPopover="bs-popover"
+      >
+      <!--  || registerSummary.bannedEmailMessage -->
+      <!-- && loginForm.controls['email'].dirty  "{ 'cart__inputValidation--error' : !loginForm.controls['email'].valid  }" registerSummary.bannedEmailMessage emailBannedError -->
+    </div>
+
+    <div class="cart__form-group">
+      <span class="cart__form-error">{{registerSummary.passwordMessage}}</span>
+      <div class="cart__input-container">
+        <input class="cart__form-control " formControlName="password" [type]="registerSummary.inputPasswordType"
+               autocomplete="new-password" placeholder="Password*"
+               [ngClass]="{ 'cart__inputValidation--error' : registerSummary.passwordMessage  }"
+
+               #passwordPopover="bs-popover"
+               [popover]="registerSummary.passwordPrompt"
+               placement="right"
+               [outsideClick]="true"
+               triggers=""
+        >
+        <span (click)="togglePasswordVis()" class="cart__icon-eye"></span>
+        <span (click)="passwordPopover.toggle()" class="cart__icon-prompt"></span>
+
+      </div>
+    </div>
+
+    <div class="cart__form-group"> <!-- (keyup)="onKeyPasswordRepeat($event)" -->
+      <span class="cart__form-error">{{registerSummary.passwordRepeatMessage}}</span>
+      <input class="cart__form-control " formControlName="passwordRepeat" type="password"
+             autocomplete="new-passwordRepeat" placeholder="Password Repeat*"
+             (paste)="disablePaste($event)"
+             [ngClass]="{ 'cart__inputValidation--error' : registerSummary.passwordRepeatMessage  }"
+             #passwordRepeatPopover="bs-popover"
+
+             [popover]="registerSummary.passwordRepeatNotSame"
+             placement="right"
+             [outsideClick]="true"
+             triggers=""
+      >
+
+    </div>
+
+    <div class="cart__form-group cart__register__passwordWeak" [hidden]="!registerSummary.isPasswordWeak">
+      <!-- *ngIf="registerSummary.isPasswordWeak" -->
+      <p><span class="cart__weak-password">Your password is weak.</span> <br>
+        <span class="cart__links" (click)="passwordGenerate()">Click here</span> to generate a strong password.
+      </p>
+    </div>
+
+    <div class="cart__form-group">
+      <button type="submit"
+              class="cart__submitButton"> <!-- cart__submitButton--green -->
+        <!-- [disabled]="loginForm.pristine"  class="btn btn-success" -->
+        Done
+      </button>
+    </div>
+  </form>
+
+</div>
+

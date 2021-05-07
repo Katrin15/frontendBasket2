@@ -1,0 +1,36 @@
+<ngx-spinner
+bdColor = "rgba(255,255,255,0.7)"
+size = "large"
+color = "#945ae0"
+type = "ball-clip-rotate"
+></ngx-spinner>
+
+<app-login-register></app-login-register>
+
+<div class="cart__login cart__section">
+	<span *ngIf="serverMessage" class="cart__login-server-error">{{serverMessage}}</span>
+	<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+	  	<div class="cart__form-group">
+	    	<span class="cart__form-error">{{loginSummary.emailMessage}}</span>
+	      	<input formControlName="email" class="cart__form-control" autocomplete="new-email" placeholder="Email Address*" 
+	        [ngClass] = "{ 'cart__inputValidation--error' : loginSummary.emailMessage  }" 
+	        >   	
+	  	</div>
+	  	<div class="cart__form-group">
+	    	<span class="cart__form-error">{{loginSummary.passwordMessage}}</span>
+	      	<input class="cart__form-control " formControlName="password" type="password" autocomplete="new-password" placeholder="Password*"
+	      	[ngClass] = "{ 'cart__inputValidation--error' : loginSummary.passwordMessage  }"
+	      	>  	
+	  	</div>
+	    <div class="cart__form-group">
+	      	<button type="submit"
+	            class="cart__submitButton">
+	            
+	            Sign In
+	      	</button>
+	    </div>
+	</form>
+
+	<a class="cart__links cart__links-separate" href="https://bill.hostkey.com/pwresethostkey.php">Request a Password Reset</a>
+	
+</div>

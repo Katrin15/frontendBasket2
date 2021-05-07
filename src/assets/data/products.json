@@ -1,0 +1,149 @@
+Get_Basket{
+  "Code": 0,
+  "Message": "",
+  "ErrorStatus": false,
+  "Error": false,
+  "Content": {
+    "totalPrice": 689.05,
+    "totalPriceWithTax": 689.05,
+    "items": [
+      {
+        "pid": 637,
+        "billingcycle": "Monthly",
+        "configoptions": {
+          "875": 26625,
+          "876": 26628,
+          "877": 26630,
+          "878": 26633,
+          "879": 26636,
+          "880": 26639,
+          "881": 26644,
+          "882": 26645
+        },
+        "Configuration": "GPU: 1xGTX1080 / CPU: Xeon E3-1230v5 4x3.4GHz / Amount of RAM: 16GB / HDD capacity: 240GB SSD",
+        "Label": "GPU Server RU",
+        "Price": 273,
+        "Description": ""
+      },
+      {
+        "pid": 3010,
+        "customfields": {
+          "432": "2xE5-2620v4  / 32Gb  / 4xHDD server US  / Integrated / No Raid / 4x240Gb SSD /Centos 7 / 64-bit/1 IPv4 / 100Mbps unmetered (Fair usage) - FREE / NONE/Basic SLA / Self-service / DC Tier3",
+          "433": "{\"/api/v1/Dedicated/Api/Basket\":\"\",\"Hardware\":{\"Cpu\":502,\"Ram\":505,\"Platform\":499,\"Hdd\":[509,509,509,509],\"Raid\":132,\"RaidLevel\":-1,\"Gpu\":[],\"Label\":\"2xE5-2620v4 (65) / 32Gb (13) / 4xHDD server US (60) / Integrated / No Raid / 4x240Gb SSD (56)\"},\"Software\":{\"OS\":226,\"Bit\":121,\"RdpLicCount\":0,\"ExchangeCount\":0,\"Label\":\"Centos 7 / 64-bit\"},\"Network\":{\"Traffic\":148,\"Bandwidth\":427,\"IP\":50,\"IPv6\":false,\"Label\":\"1 IPv4 / 100Mbps unmetered (Fair usage) - FREE / NONE\"},\"SLA\":{\"ServiceLevel\":134,\"Management\":135,\"DCGrade\":332,\"Comment\":\"\",\"CycleDiscount\":\"monthly\",\"Label\":\"Basic SLA / Self-service / DC Tier3\"},\"Currency\":\"eur\",\"Groups\":\"US,2CPU\",\"PID\":3010,\"Calculation\":false,\"CompId\":0}",
+          "434": "[]",
+          "10004": "Country: US / Groups: US,2CPU"
+        },
+        "priceoverride": 194,
+        "billingcycle": "Monthly",
+        "Label": "Dedicated server US",
+        "Configuration": "2xE5-2620v4  / 32Gb  / 4xHDD server US  / Integrated / No Raid / 4x240Gb SSD /Centos 7 / 64-bit/1 IPv4 / 100Mbps unmetered (Fair usage) - FREE / NONE/Basic SLA / Self-service / DC Tier3",
+        "Price": 194,
+        "Description": ""
+      },
+      {
+        "pid": 531,
+        "billingcycle": "Monthly",
+        "configoptions": {
+          "698": 5285,
+          "701": 5291,
+          "702": 7974,
+          "703": 5295,
+          "704": 5297,
+          "706": 5302
+        },
+        "Label": "Cloud VDS NL",
+        "Price": 6,
+        "Configuration": "0 / Amount of RAM: 1 GB / 2 / 3 / 4 / 5 / Backups limit: 0 Gb / Traffic: 1000 GB / IP addresses: 1 IPv4 / Disk space: 25 GB / CPU cores: 1",
+        "Description": ""
+      },
+      {
+        "domain": "lalalalal12lal.fr",
+        "domainpriceoverride": 8.25,
+        "domaintype": "register",
+        "regperiod": 1,
+        "emailforwarding": false,
+        "idprotection": false,
+        "dnsmanagement": false,
+        "domainfields": {
+          "Birthdate": 19991212,
+          "Birthplace City": "",
+          "Birthplace Country": "",
+          "Birthplace Postcode": "",
+          "SIRET Number": "",
+          "DUNS Number": "",
+          "VAT Number": "",
+          "Trademark Number": "",
+          "Legal Type": "Individual"
+        },
+        "pid": 503,
+        "priceoverride": 12,
+        "billingcycle": "Monthly",
+        "configoptions": {
+          "857": 14422
+        },
+        "Price": 20.25,
+        "Label": " lalalalal12lal.fr ",
+        "Configuration": "+DNS",
+        "RealCycle": "1 year(s)",
+        "Description": ""
+      },
+      {
+        "pid": 2020,
+        "customfields": {
+          "429": "J4005  / 4 Gb  / 2xHDD server RU  / Integrated / No Raid / 2x120Gb SSD /Centos 7 / 64-bit/1 IPv4 / 100Mbps (10Tb max) / NONE/Basic SLA / Self-service",
+          "430": "{\"/api/v1/Dedicated/Api/Basket\":\"\",\"Hardware\":{\"Cpu\":599,\"Ram\":76,\"Platform\":122,\"Hdd\":[72,72],\"Raid\":132,\"RaidLevel\":-1,\"Gpu\":[],\"Label\":\"J4005 (6) / 4 Gb (3) / 2xHDD server RU (30) / Integrated / No Raid / 2x120Gb SSD (18)\"},\"Software\":{\"OS\":226,\"Bit\":121,\"RdpLicCount\":0,\"ExchangeCount\":0,\"Label\":\"Centos 7 / 64-bit\"},\"Network\":{\"Traffic\":147,\"Bandwidth\":427,\"IP\":50,\"IPv6\":false,\"Label\":\"1 IPv4 / 100Mbps (10Tb max) / NONE\"},\"SLA\":{\"ServiceLevel\":134,\"Management\":135,\"Comment\":\"\",\"CycleDiscount\":\"monthly\",\"Label\":\"Basic SLA / Self-service\"},\"Currency\":\"eur\",\"Groups\":\"RU,Micro\",\"PID\":2020,\"Calculation\":false,\"CompId\":0}",
+          "431": "[]",
+          "10002": "Country: RU / Groups: RU,Micro"
+        },
+        "priceoverride": 57,
+        "billingcycle": "Monthly",
+        "Label": "Dedicated server RU",
+        "Configuration": "J4005  / 4 Gb  / 2xHDD server RU  / Integrated / No Raid / 2x120Gb SSD /Centos 7 / 64-bit/1 IPv4 / 100Mbps (10Tb max) / NONE/Basic SLA / Self-service",
+        "Price": 57,
+        "Description": ""
+      },
+      {
+        "pid": 531,
+        "billingcycle": "Monthly",
+        "configoptions": {
+          "698": 5285,
+          "701": 5291,
+          "702": 7974,
+          "703": 5295,
+          "704": 5297,
+          "706": 5302
+        },
+        "Label": "Cloud VDS NL",
+        "Price": 6,
+        "Configuration": "0 / Amount of RAM: 1 GB / 2 / 3 / 4 / 5 / Backups limit: 0 Gb / Traffic: 1000 GB / IP addresses: 1 IPv4 / Disk space: 25 GB / CPU cores: 1",
+        "Description": ""
+      },
+      {
+        "pid": 3051,
+        "customfields": {
+          "456": "VPS Turbo Win US 2/8/100  / CPU CORES: 2 / RAM: 8 GB / Disk space: 100 GB SSD / IPv4 address: 1 / Traffic: 1TB / Windows Server 2016"
+        },
+        "priceoverride": 80,
+        "billingcycle": "Monthly",
+        "Label": "VPS Turbo Win US 2/8/100",
+        "Configuration": " / CPU CORES: 2 / RAM: 8 GB / Disk space: 100 GB SSD / IPv4 address: 1 / Traffic: 1TB / Windows Server 2016",
+        "Price": 80,
+        "Description": ""
+      },
+      {
+        "pid": 3040,
+        "customfields": {
+          "448": "VPS Win US CPU CORES: 1 / RAM: 1 GB / Disk space: 20 GB SSD / IPv4 address: 1 / Traffic: 1TB / Windows Server 2016",
+          "449": "{\"/api/v1/winvps/basket\":\"\",\"groups\":\"US\",\"period\":\"annually\",\"preset\":1,\"os\":\"Windows Server 2016\",\"traffic\":0,\"PID\":3040}"
+        },
+        "priceoverride": 52.8,
+        "billingcycle": "Annually",
+        "Label": "VPS Win US",
+        "Configuration": "CPU CORES: 1 / RAM: 1 GB / Disk space: 20 GB SSD / IPv4 address: 1 / Traffic: 1TB / Windows Server 2016",
+        "Price": 52.8,
+        "Description": ""
+      }
+    ],
+    "currency": "EUR"
+  }
+}

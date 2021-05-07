@@ -1,0 +1,16 @@
+<ngx-spinner
+bdColor = "rgba(255,255,255,0.7)"
+size = "large"
+color = "#945ae0"
+type = "ball-clip-rotate"
+></ngx-spinner>
+
+<h2 class="cart__header">Additional Information</h2>
+<span class="cart__form-error" *ngIf="errorServerMessageLogout">{{errorServerMessageLogout}}</span>
+<table class="cart__info-table ">
+  <tr>
+    <th class="cart__add-info-table__hello">Hello,&nbsp;</th>
+    <th class="cart__add-info-table__name">{{clientsName}}</th> <!-- Marry Moon -->   
+    <th class="cart__add-info-table__logout" (click)='logoutRequest()' >Logout</th>
+  </tr>
+</table>
